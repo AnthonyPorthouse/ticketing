@@ -16,7 +16,7 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
           directory: auth
-          image: ghcr.io/anthonyporthouse/ticketing/auth
+          image: ticketing/auth
           registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}

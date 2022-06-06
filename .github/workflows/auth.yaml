@@ -15,6 +15,7 @@ jobs:
       - name: Build and Push Image
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
+          directory: auth
           image: ghcr.io/anthonyporthouse/ticketing/auth
           registry: ghcr.io
           username: ${{ github.actor }}

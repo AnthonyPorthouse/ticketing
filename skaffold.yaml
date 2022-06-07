@@ -1,9 +1,9 @@
 apiVersion: skaffold/v2beta28
 kind: Config
 deploy:
-  kubectl:
-    manifests:
-      - ./infra/k8s/*
+  kustomize:
+    paths:
+      - ./infra/k8s/overlays/production
 build:
   local:
     push: true
@@ -16,3 +16,13 @@ build:
         manual:
           - src: 'src/**/*.ts'
             dest: .
+
+profiles:
+  - name: production
+  - name: development
+    activation:
+      - command: dev
+    deploy:
+      kustomize:
+        paths:
+          - ./infra/k8s/overlays/development

@@ -8,6 +8,9 @@ Bugsnag.start({
   apiKey: API_KEY,
   releaseStage: RELEASE_STAGE,
   plugins: [BugsnagPluginExpress],
+  metadata: {
+    app: "auth",
+  },
 });
 
 export const bugsnag = Bugsnag.getPlugin("express")!;

@@ -9,7 +9,9 @@ Bugsnag.start({
   releaseStage: RELEASE_STAGE,
   plugins: [BugsnagPluginExpress],
   metadata: {
-    app: "auth",
+    app: {
+      name: "auth"
+    },
   },
 });
 

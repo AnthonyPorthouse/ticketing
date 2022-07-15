@@ -15,7 +15,12 @@ spec:
       containers:
         - name: auth
           image: ghcr.io/anthonyporthouse/ticketing/auth
-#          imagePullPolicy: Always
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 3
           env:
             - name: JWT_KEY
               valueFrom:

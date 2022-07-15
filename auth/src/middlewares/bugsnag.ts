@@ -10,7 +10,7 @@ Bugsnag.start({
   plugins: [BugsnagPluginExpress],
   metadata: {
     app: {
-      name: "auth"
+      name: "auth",
     },
   },
 });

@@ -12,6 +12,7 @@ import { errorHandler } from "./middlewares/error-handler";
 import { NotFoundError } from "./errors/not-found-error";
 import helmet from "helmet";
 import { bugsnag } from "./middlewares/bugsnag";
+import { livenessRouter } from "./routes/liveness";
 
 const app = express();
 app.use(bugsnag.requestHandler);
@@ -25,6 +26,7 @@ app.use(
   })
 );
 
+app.use(livenessRouter);
 app.use(currentUserRouter);
 app.use(signinRouter);
 app.use(signoutRouter);

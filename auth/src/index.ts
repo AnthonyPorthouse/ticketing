@@ -34,7 +34,7 @@ app.all("*", async () => {
   throw new NotFoundError();
 });
 
-app.use(bugsnag.errorHandler)
+app.use(bugsnag.errorHandler);
 app.use(errorHandler);
 
 const start = async () => {

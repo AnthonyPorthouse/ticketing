@@ -21,6 +21,14 @@ spec:
                 secretKeyRef:
                   name: jwt-secret
                   key: JWT_KEY
+          securityContext:
+            allowPrivilegeEscalation: false
+            capabilities:
+              drop:
+                - all
+            runAsNonRoot: true
+            runAsUser: 1000
+            runAsGroup: 1000
 
 ---
 

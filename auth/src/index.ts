@@ -11,8 +11,10 @@ import { signupRouter } from "./routes/signup";
 import { errorHandler } from "./middlewares/error-handler";
 import { NotFoundError } from "./errors/not-found-error";
 import helmet from "helmet";
+import { bugsnag } from "./middlewares/bugsnag";
 
 const app = express();
+app.use(bugsnag.requestHandler);
 app.use(helmet());
 app.set("trust proxy", true);
 app.use(json());
@@ -32,6 +34,7 @@ app.all("*", async () => {
   throw new NotFoundError();
 });
 
+app.use(bugsnag.errorHandler)
 app.use(errorHandler);
 
 const start = async () => {

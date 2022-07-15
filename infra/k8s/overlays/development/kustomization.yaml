@@ -13,3 +13,10 @@ patches:
       - op: replace
         path: /spec/rules/0/host
         value: ticketing.dev.porthouse.dev
+  - target:
+      kind: Deployment
+      name: auth-depl
+    patch: |-
+      - op: replace
+        path: /spec/template/spec/containers/0/env/2/value
+        value: development

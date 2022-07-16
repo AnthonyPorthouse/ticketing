@@ -5,11 +5,13 @@ import { User } from "../models/user";
 import { BadRequestError } from "../errors/bad-request-error";
 import { Password } from "../services/password";
 import jwt from "jsonwebtoken";
+import { rateLimit } from "../middlewares/rate-limit";
 
 const router = express.Router();
 
 router.post(
   "/api/users/signin",
+  rateLimit,
   [
     body("email").isEmail().withMessage("Emaul must be valid"),
     body("password")

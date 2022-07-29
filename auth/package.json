@@ -24,7 +24,7 @@
     "express-validator": "^6.14.1",
     "helmet": "^5.1.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^6.3.5",
+    "mongoose": "^6.4.6",
     "typescript": "^4.7.3"
   },
   "devDependencies": {
